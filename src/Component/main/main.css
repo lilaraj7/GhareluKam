@@ -1,0 +1,234 @@
+.main-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+.main-service-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+  position: relative;
+}
+.home-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 63px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1px solid #d6a6a6;
+  filter: blur(1px);
+  position: absolute;
+  transform: translateY(-50%);
+  top: 40px;
+  left: 30%;
+  /* transform: translateY(10px); */
+  z-index: 1;
+  /* /* padding-top: 4rem; */
+}
+.brush {
+  display: flex;
+  left: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.service-name-icons {
+  display: flex;
+  box-sizing: border-box;
+
+  height: 75px;
+  transform: translateY(-15px);
+  background: #ffffff;
+  border: 1px solid #efeaea;
+  box-shadow: 0px 2px 1px #d9d9d9;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+.icon-arrow {
+  align-items: center;
+  justify-content: center;
+}
+.title-border {
+  position: relative;
+  padding-top: 2rem;
+}
+.title-border h1 {
+  background-color: #fff;
+  padding-right: 1rem;
+  display: inline-block;
+  font-weight: bold;
+}
+.title-border::after {
+  transform: translateY(-50%);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  left: 0;
+  top: 70%;
+  border: 1px solid #dac6c6;
+  z-index: -1;
+}
+.house-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(243, 236, 236, 0.5);
+  border-radius: 5px;
+  justify-content: space-between;
+  z-index: 1000;
+}
+.img-card {
+  display: flex;
+  overflow: hidden;
+
+  object-fit: fill;
+}
+
+.card-body p {
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  margin: 0 0;
+
+  padding-right: 5px;
+  padding: 0.5rem;
+}
+.card-owner {
+  display: flex;
+  flex-direction: row;
+  background-color: blue;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: white;
+  padding-left: 23px;
+  height: 40px;
+  align-items: center;
+  padding-top: 10px;
+}
+.stiker {
+  display: flex;
+  top: 1rem;
+  border: 1px;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+  color: #ffffff;
+  width: 50px;
+  border-radius: 3px;
+  position: absolute;
+  left: 1rem;
+}
+.best-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+.best-title h1 {
+  color: #9d3a3a;
+  margin: 0 0;
+}
+.best-title h3 {
+  margin: 0 0;
+}
+.property-location {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+  padding-left: 5px;
+  margin: 1px;
+  justify-content: space-around;
+}
+.property-location h4 {
+  margin: 0 0;
+}
+.location {
+  display: flex;
+  padding: 0.5rem;
+  border: 1px solid#DAC6C6;
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+}
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(243, 236, 236, 0.5);
+  border-radius: 12px;
+  justify-content: space-between;
+  z-index: 1000;
+}
+.slider {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+
+  position: relative;
+  overflow: hidden;
+  padding-left: 10px;
+}
+.Slider-service {
+  display: flex;
+  flex-direction: row;
+  height: 350px;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 58% !important;
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000 !important;
+}
+:root {
+  --swiper-navigation-size: 20px !important;
+}
+.card-title {
+  font-size: 16px;
+  padding-left: 5px;
+}
+.h5 {
+  font-size: 12px;
+  padding-left: 5px;
+}
+p {
+  font-size: 12px;
+}
+@media (max-width: 768px){
+.card{
+  width: 75%;
+  margin: 1rem auto;
+}
+}
+@media (max-width: 576px){
+.card{
+  width: 100%;
+
+}
+}

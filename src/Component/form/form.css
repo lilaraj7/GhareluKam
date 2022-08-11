@@ -1,0 +1,21 @@
+h1{
+    
+    font-size: 20px;
+    
+}
+.btn{
+    margin:  1rem;
+
+}
+.search-below{
+    display: flex;
+    flex-direction: row;
+    
+}
+.se-btn{
+    padding-left: 4rem;
+    cursor: pointer;
+}
+.arrowback{
+    cursor: pointer;
+}

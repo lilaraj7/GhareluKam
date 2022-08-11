@@ -1,0 +1,12 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.App{
+    padding-bottom: 10px;
+}
+
+.main-home{
+    position: relative;
+    margin: 1rem;
+    margin-top: 7rem;
+}

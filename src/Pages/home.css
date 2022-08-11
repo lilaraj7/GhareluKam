@@ -1,0 +1,28 @@
+.main-home-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 1px;
+  width: 100%;
+}
+.main-side-form {
+  position: fixed;
+  background: #f5f5f5;
+  padding: 1rem;
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: 6rem;
+}
+
+.main-home-cards {
+  margin-left: 420px;
+  overflow: hidden;
+  z-index: 100;
+}
+@media (max-width: 992px) {
+  .main-side-form {
+    position: static;
+  }
+  .main-home-cards {
+    margin-left: 0;
+  }
+}
