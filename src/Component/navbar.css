@@ -1,5 +1,5 @@
 .nav-item{
-    margin:  0 1rem;
+    margin:  0 1.4rem;
 }
 .btn{
   margin: 0.2rem;
@@ -44,7 +44,7 @@
 }
 
 
-.navbar .navbar-nav .nav-item.active::after {
+.navbar .navbar-nav .nav-item.isActive::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -55,4 +55,7 @@
   content: "";
   height: 4px;
  
+}
+.active-link{
+  color: blue;
 }
