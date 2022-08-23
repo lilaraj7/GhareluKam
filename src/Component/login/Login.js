@@ -1,23 +1,115 @@
-import React from "react";
+import React, {  useState } from "react";
 import "./login.css";
-import gharelulogo from "../../Assets/gharelulogo.png";
+// import gharelulogo from "../../Assets/gharelulogo.png";
 import image3 from "../../Assets/image3.jpeg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/autoplay";
 import "swiper/css/bundle";
 import { Autoplay, Pagination } from "swiper";
+import $ from 'jquery'
+import {useNavigate } from "react-router-dom"
 
-function Login() {
+function Login(props) {
+// const navigate = useNavigate()
+
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
+  const [islogged,setIslogged] = useState();
+ 
+ 
+
+  // const handleapi =(e)=>{
+  //   e.preventDefault()
+  //   axios.post('https://testing.esnep.com/gharelukam/api/login',{
+  //     UserName:data.username,
+  //     Password:data.password,
+  //     NotificationToken: "string",
+  //     Source: "GOOGLE"
+  //   })
+  //   .then((result)=>{
+  //     console.log(result.data)
+      
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+    
+  // }
+const history = useNavigate()
+  const handleSubmit =async(e)=> {
+    e.preventDefault()
+    if(username===null && password===null){
+      alert("You should fill all the box");
+    }else{
+      console.log("datas")
+      return fetch('https://testing.esnep.com/gharelukam/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          UserName:username,
+          Password:password,
+          Source: "DEVICE",
+          NotificationToken:"string"
+        })
+      }).then((data)=> data.json())
+      .then((res)=>{
+        console.log(res.Message)
+        // const respon = res.LoginOutput;
+        // console.log(res.LoginOutput[0],FullName);
+
+        if (res.Message ==='Success.'){
+          setIslogged(!islogged);
+          setTimeout(()=>{
+            history("/home");
+          },1000);
+        }else if (res.Token == null){
+          afterEach('password dosent Matched ')
+        }
+       
+      })
+    }
+  }
+   
+
+
+  
+  const cross=()=>{
+    $('.login-container').fadeOut(100)
+  }
+   
+    // else {
+    //   swal("Failed", response.message, "error");
+    // }
+  
+  
+ 
+
+//   useEffect(()=>{
+// if (props.popUp){
+//   $('.login-container').fadeIn(100)
+// }else{
+//   $('.login-container').fadeOut(0)
+// }
+  // },[props.popUp])
   return (
     <div className="login-container">
       <div className="top">
-        <img src={gharelulogo} alt=""  height ='80px'
-    width= '100px' />
-      </div>
       <h1>
-       <span> Welcome to the </span>
-        <span> <span className='c1'>Gharelu</span> <span className="c2">Kam</span></span>
+        <span> Welcome to the </span>
+        <span>
+          
+          <span className="c1">Gharelu</span> <span className="c2">Kam</span>
+        </span>
       </h1>
+        {/* <div className="top-row1">
+          <img src={gharelulogo} alt="" height="80px" width="100px" />
+        </div> */}
+        <div className="top-row2">
+          <button className="cut" onClick={cross}>x</button>
+        </div>
+      </div>
       <div className="main-login-container">
         <div className="login-image">
           <Swiper
@@ -43,39 +135,54 @@ function Login() {
             </SwiperSlide>
           </Swiper>
         </div>
-        <div className="login-form">
-          <div class="my-3">
+        <form className="login-form"  onSubmit={handleSubmit}>
+        
+          <div className="my-3">
             <input
               type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="UserName"
+              className="form-control"
+              id="email"
+              name="email"
+              placeholder="Email Address"
+              onChange={e => setUserName(e.target.value)}
             />
           </div>
-          <div class="mb-2">
+          <div className="mb-2">
             <input
-              type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="UserName"
+              type="password"
+              className="form-control"
+              id="password"
+              name="password"
+              placeholder="Password"
+            
+              onChange={e => setPassword(e.target.value)}
             />
           </div>
-          <button type="button" class="btn mb-1 btn-primary">Login</button>
+          <button type="submit" className="btn mb-1 btn-primary" onClick={Login} >
+            Login
+          </button>
           <p>Don't have account?</p>
           <div className="h-2">
-          <h2>Login with</h2>
+            <h2>Login with</h2>
           </div>
-         
-          <div class="mb-1 w-100">
-          <button type="button" class="btn btn-light w-75 mx-auto d-block">FaceBook</button>
+
+          <div className="mb-sm-1 w-100">
+            <button type="button" className="btn btn-light w-75 mx-auto d-block">
+              FaceBook
+            </button>
           </div>
-          <div class="mb w-100">
-          <button type="button" class="btn btn-light w-75 mx-auto d-block">Google</button>
+          <div className="mb w-100">
+            <button type="button" className="btn btn-light w-75 mx-auto d-block">
+              Google
+            </button>
           </div>
-        </div>
+      
+        </form>
+        
       </div>
     </div>
   );
 }
+
 
 export default Login;
