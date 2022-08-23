@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./login.css";
 // import gharelulogo from "../../Assets/gharelulogo.png";
 import image3 from "../../Assets/image3.jpeg";
@@ -10,7 +10,12 @@ import { Autoplay, Pagination } from "swiper";
 import { useNavigate } from "react-router-dom";
 import Logincontext from "../Context/Logincontext";
 import Glog from "./Glog";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+// import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
+
+const client_id =
+  "422884838767-fro3igbie8ldmgp7itnfeok7q2bspa47.apps.googleusercontent.com";
 
 function Login(props) {
   // const navigate = useNavigate()
@@ -18,7 +23,15 @@ function Login(props) {
   const [username, setUserName] = useState();
   const [password, setPassword] = useState();
   // const [islogged,setIslogged] = useState();
-
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientId: client_id,
+        scope: "",
+      });
+    }
+    gapi.load("client:auth2", start);
+  });
   // const handleapi =(e)=>{
   //   e.preventDefault()
   //   axios.post('https://testing.esnep.com/gharelukam/api/login',{
@@ -36,6 +49,43 @@ function Login(props) {
   //   })
 
   // }
+  const onSuccess = (res) => {
+    console.log("login Success:", res.profileObj);
+    setUserName(res.profileObj.email);
+    if (username === null) {
+      alert("You should fill all the box");
+    } else {
+      console.log("datas");
+      return fetch("https://testing.esnep.com/gharelukam/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          UserName: username,
+          Source: "GOOGLE",
+          NotificationToken: "string",
+        }),
+      })
+        .then((data) => data.json())
+        .then((res) => {
+          console.log(res.Message);
+          // const respon = res.LoginOutput;
+          // console.log(res.LoginOutput[0],FullName);
+
+          if (res.Message === "Success.") {
+            setIslogged(!islogged);
+            setTimeout(() => {
+              history("/home");
+            }, 1000);
+          } else if (res.Token == null) {
+          }
+        });
+    }
+  };
+  const onFailure = (res) => {
+    console.log("Login Failed:", res);
+  };
   const history = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -182,18 +232,24 @@ function Login(props) {
             </button>
           </div>
 
-            <div className="mb w-100">
-             
-              <Glog/>
-              {/* <button
+          <div className="mb w-100">
+            <GoogleLogin
+              clientId={client_id}
+              buttonText="Login with Google"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={"single_host_origin"}
+              isSignedIn={true}
+            />
+            {/* <Glog/> */}
+            {/* <button
                 type="button"
                 className="btn btn-light w-75 mx-auto d-block"
                 onClick={() => <Glog />}
               >
                 Google
               </button> */}
-
-            </div>
+          </div>
         </form>
       </div>
     </div>

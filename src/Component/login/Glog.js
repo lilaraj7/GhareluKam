@@ -51,7 +51,6 @@ import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 
 
-const client_id =  "422884838767-fro3igbie8ldmgp7itnfeok7q2bspa47.apps.googleusercontent.com";
 
 
 function Glog(){
@@ -64,7 +63,7 @@ function Glog(){
   return(
     <div id='signInButton'>
       <GoogleLogin
-      clientId={client_id}
+      clientId={'422884838767-fro3igbie8ldmgp7itnfeok7q2bspa47.apps.googleusercontent.com'}
       buttonText='Login with Google'
       onSuccess={onSuccess}
       onFailure={onFailure}
