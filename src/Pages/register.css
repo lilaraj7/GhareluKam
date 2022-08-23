@@ -1,0 +1,9 @@
+.reg-form {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 1rem;
+  align-items: center;
+  justify-content: center;
+  
+}

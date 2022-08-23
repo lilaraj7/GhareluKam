@@ -3,6 +3,7 @@ import Main from '../Component/main/Main'
 import './home.css'
 import Form from '../Component/form/Form';
 import Form2 from '../Component/form/Form2';
+// import Navbar from '../Component/Navbar';
 
 
 function Home() {
@@ -12,7 +13,10 @@ function Home() {
     setShow(!show)
   }
   return (
+    <>
+
     <div className='main-home-container row' >
+      
     <aside className='main-side-form col-xl-4'>
    {
 show?<Form change={handleChange}/>:<Form2 change={handleChange}/>
@@ -24,6 +28,7 @@ show?<Form change={handleChange}/>:<Form2 change={handleChange}/>
     <Main/>
     </div>
     </div>
+    </>
   )
 }
 

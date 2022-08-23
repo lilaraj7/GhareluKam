@@ -1,18 +1,28 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "./navbar.css";
 import gharelulogo from "../Assets/gharelulogo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import Login from "./login/Login";
+import Logincontext from "./Context/Logincontext";
 
 
 const Navbar = () => {
- 
-  const [popUp,setPopUp]=useState(false)
+  const  {islogged,setIslogged}=useContext(Logincontext)
 
-  const enteryform =(e)=>{
-e.preventDefault()
-    setPopUp(!popUp)
-  }
+  // const [btnshow, setBtnshow] = useState(true);
+  const [popUp, setPopUp] = useState(false);
+
+  const logoutHandle = (e) => {
+    e.preventDefault();
+    setPopUp(!popUp);
+    setIslogged(false)
+    window.location.href = "/";
+  };
+  const loginHandle = (e) => {
+    e.preventDefault();
+    setPopUp(!popUp);setIslogged(true)
+    window.location.href = "/home";
+  };
 
   return (
     <div className="navbar">
@@ -21,7 +31,7 @@ e.preventDefault()
           <span className="navbar-brand">
             <img src={gharelulogo} alt="logo" height="90px" width="150px" />
           </span>
-          <button
+          {/* <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -31,68 +41,61 @@ e.preventDefault()
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
-          </button>
+          </button> */}
           <div
             className="collapse navbar-collapse justify-content-end"
             id="navbarSupportedContent"
           >
             <ul className="navbar-nav  mb-2 mb-lg-0 align-items-center">
+  
               <li className="nav-item ">
-                <Link
-                  to="/"
-                  className="nav-link "
-                  
-                >
+                <NavLink to="home" className="nav-link ">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item ">
-                <Link
-                  to="Property"
-                  className="nav-link"
-                 
-                >
+                <NavLink to="Property" className="nav-link">
                   Property
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link
-                  to="Services"
-                  className="nav-link"
-                >
+                <NavLink to="Services" className="nav-link">
                   Services
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link
-                  to="Blogs"
-                  className="nav-link"
-                >
+                <NavLink to="Blogs" className="nav-link">
                   Blogs
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link
-                  to="Contact"
-                  className="nav-link"
-                >
+                <NavLink to="Contact" className="nav-link">
                   Contact
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item ">
-                <Link
-                  to="Register"
-                  className="nav-link"
-                >
+                <NavLink to="Register" className="nav-link">
                   Register
-                </Link>
+                </NavLink>
               </li>
 
               <li className="nav-btn">
-                <button type="button" className="btn btn-primary" onClick={enteryform}>
+                  {!islogged ? (<button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={loginHandle}
+                  >
+                    Login
+                  </button>):(<button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={ logoutHandle}
+                  >
+                    Logout
+                  </button>)}
+                {/* <button type="button" className="btn btn-primary" onClick={exit}>
                   Logout 
-                </button>
-                
+                </button> */}
               </li>
               {/* <Login popUp={popUp} setPopUp={setPopUp}/> */}
             </ul>

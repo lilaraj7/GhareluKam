@@ -22,7 +22,7 @@
 .navbar .navbar-nav .nav-item {
   position: relative;
 }
-.navbar .navbar-nav .nav-item::after {
+/* .navbar .navbar-nav .nav-item::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -33,18 +33,18 @@
   content: "";
   height: 4px;
  
-}
+} */
 
-.navbar .navbar-nav .nav-item:hover::after {
+/* .navbar .navbar-nav .nav-item:hover::after {
   width: 100%;
-}
+} */
 .nav-link{
   color: black;
   
 }
 
 
-.navbar .navbar-nav .nav-item.isActive::after {
+.active::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -56,6 +56,7 @@
   height: 4px;
  
 }
-.active-link{
-  color: blue;
+.active{
+  color: blue !important;
+  
 }

@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Navbar from '../Component/Navbar'
-import{Outlet}  from 'react-router-dom'
-import './App.css';
+// import{Outlet}  from 'react-router-dom'
+// import './App.css';
 
 
-const SharedLayout = () => {
+
+const SharedLayout = (props) => {
   return (
     <>
-    <header className="App-header">
+    {/* <header className="App-header">
     <Navbar/>
     </header>
     
-    <Outlet/>
+    <Outlet/> */}
+
+    <Fragment>
+      <div>
+        <Navbar/>
+        {props.children}
+      </div>
+    </Fragment>
     </>
   )
 }
