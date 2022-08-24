@@ -11,10 +11,10 @@ function Form(props) {
         <h1>Find best home services for your home</h1>
         <div>
           <label>Purposes</label>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn ms-3 btn-light">
             All
           </button>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn ms-3 btn-light">
             Sale
           </button>
         </div>

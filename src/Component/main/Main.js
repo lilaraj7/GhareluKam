@@ -1,43 +1,44 @@
 import React from "react";
 import "./main.css";
 import office from "../../Assets/office.png";
+import image2 from "../../Assets/image2.jpeg";
 import house from "../../Assets/house.png";
 import Slider from "../Slider";
 import { FaUserTie } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/css/autoplay'
+import "swiper/css/autoplay";
 import "swiper/css/bundle";
-import { Autoplay,  Pagination } from "swiper";
-
+import { Autoplay, Pagination } from "swiper";
+import Topslider from "./Topslider";
 const Main = () => {
   return (
     <div className="main-container">
       <div className="slider">
-        <Swiper
+        {/* <Swiper
           className="mSwiper"
           pagination={{
             clickable: true,
           }}
-          
           slidesPerView={1}
-          autoplay={{delay:2000}}
-          modules={[Pagination,Autoplay]}
+          autoplay={{ delay: 1000 }}
+          modules={[Pagination, Autoplay]}
         >
           <SwiperSlide className="swiper-slide">
-            <img src={office} alt=""></img>
+            <img className="slideimg" src={office} alt=""></img>
           </SwiperSlide>
           <SwiperSlide className="swiper-slide">
-            <img src={office} alt=""></img>
+            <img className="slideimg" src={image2} alt=""></img>
           </SwiperSlide>
           <SwiperSlide className="swiper-slide">
-            <img src={office} alt=""></img>
+            <img className="slideimg" src={office} alt=""></img>
           </SwiperSlide>
           <SwiperSlide className="swiper-slide">
-            <img src={office} alt=""></img>
+            <img className="slideimg" src={image2} alt=""></img>
           </SwiperSlide>
-        </Swiper>
+        </Swiper> */}
+        <Topslider/>
 
         {/* <img src={office} alt="" height="300px" width="840px" /> */}
       </div>
@@ -55,83 +56,77 @@ const Main = () => {
           <h1>Best Houses for you</h1>
         </div>
         <div className="row">
-        <div className="col-md-4">
-       
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/> 
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
-
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
+          </div>
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div className="col-md-4">
-        
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/> 
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
 
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-        
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/> 
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
-
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
-            </div>
-          </div>
-        </div>
-        </div>
-       
         <div className="best-title">
           <h1>Best House For You</h1>
           <h3>We are Offering Best Rental Services</h3>
@@ -149,81 +144,75 @@ const Main = () => {
           <span className="location">Birgungj</span>
         </div>
         <div className="row">
-        <div className="col-md-4">
-       
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/> 
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
-
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-        
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/> 
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
-
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-4">
-        
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/> 
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
-
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="title-border">
           <h1>Property on Rent</h1>
@@ -238,149 +227,134 @@ const Main = () => {
           <div className="location">Birgungj</div>
         </div>
         <div className="row">
-        <div className="col-md-4">
-         
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/>
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
-
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-4">
-        
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/>
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
-
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-4">
-        
-          <div className="card">
-          <img className="card-img-top" alt="" src={house}/>
-           <span className="stiker">Sale</span>
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-              <h5 className="h5">
-                <MdLocationPin /> Kalimati,Kathmandu
-              </h5>
-              <p>
-                <span>
-                  <BsFillHouseDoorFill /> 2500 sqft
-                </span>
-                <span>Rs 90,000</span>
-              </p>
-
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+          <div className="col-md-4">
+            <div className="card">
+              <img className="card-img-top" alt="" src={house} />
+              <span className="stiker">Sale</span>
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
+                <h5 className="h5">
+                  <MdLocationPin /> Kalimati,Kathmandu
+                </h5>
+                <p>
+                  <span>
+                    <BsFillHouseDoorFill /> 2500 sqft
+                  </span>
+                  <span>Rs 90,000</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="title-border">
           <h1>Popular Blogs</h1>
         </div>
         <div className="row">
-        <div className="col-md-4">
-        <img className="card-img-top" alt="" src={house}/> 
-          <div className="card">
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-            
-              <p>
-                <span>
-                  family house
-                </span>
-                <span>8 august 2022</span>
-              </p>
+          <div className="col-md-4">
+            <img className="card-img-top" alt="" src={house} />
+            <div className="card">
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
 
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
+                <p>
+                  <span>family house</span>
+                  <span>8 august 2022</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-4">
-        <img className="card-img-top" alt="" src={house}/> 
-          <div className="card">
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-            
-              <p>
-                <span>
-                  family house
-                </span>
-                <span>8 august 2022</span>
-              </p>
+          <div className="col-md-4">
+            <img className="card-img-top" alt="" src={house} />
+            <div className="card">
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
 
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
+                <p>
+                  <span>family house</span>
+                  <span>8 august 2022</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-4">
-        <img className="card-img-top" alt="" src={house}/> 
-          <div className="card">
-            <div className="card-body">
-              <h1 className="card-title">Single family</h1>
-            
-              <p>
-                <span>
-                  family house
-                </span>
-                <span>8 august 2022</span>
-              </p>
+          <div className="col-md-4">
+            <img className="card-img-top" alt="" src={house} />
+            <div className="card">
+              <div className="card-body">
+                <h1 className="card-title">Single family</h1>
 
-            </div>
-            <div className="card-owner">
-            <p>
-                <FaUserTie /> By Admin
-              </p>
+                <p>
+                  <span>family house</span>
+                  <span>8 august 2022</span>
+                </p>
+              </div>
+              <div className="card-owner">
+                <p>
+                  <FaUserTie /> By Admin
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>

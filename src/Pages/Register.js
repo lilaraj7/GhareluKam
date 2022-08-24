@@ -123,7 +123,10 @@ const Register = () => {
           Register
         </Button>
         <div>
-        <Gregistration/>
+          <div>
+          <Gregistration/>
+
+          </div>
 
         </div>
         

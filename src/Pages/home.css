@@ -18,11 +18,21 @@
   overflow: hidden;
   z-index: 100;
 }
-@media (max-width: 992px) {
+.main-home-slider{
+  margin-left: 420px;
+  overflow: hidden;
+  z-index: 100;
+}
+@media (max-width: 1200px) {
+  .main-home-container{
+    flex-direction: column-reverse;
+  }
   .main-side-form {
     position: static;
+    /* flex-direction: column-reverse; */
   }
   .main-home-cards {
     margin-left: 0;
+
   }
 }

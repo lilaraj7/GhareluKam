@@ -53,14 +53,23 @@ function Login(props) {
           console.log(res.Message);
           // const respon = res.LoginOutput;
           // console.log(res.LoginOutput[0],FullName);
-
           if (res.Message === "Success.") {
-            setIslogged(!islogged);
             setTimeout(() => {
               history("/");
+
+              $(".login-container").fadeOut(1000);
+              setIslogged(true);
             }, 1000);
           } else if (res.Token == null) {
+            
           }
+          // if (res.Message === "Success.") {
+          //   setIslogged(!islogged);
+          //   setTimeout(() => {
+          //     history("/");
+          //   }, 1000);
+          // } else if (res.Token == null) {
+          // }
         });
     }
   };
@@ -221,7 +230,7 @@ function Login(props) {
             </button>
           </div>
 
-          <div className="mb w-100">
+          <div className="mb ps-5 pt-1 w-100">
             <GoogleLogin
               clientId={client_id}
               buttonText="Login with Google"
@@ -230,14 +239,7 @@ function Login(props) {
               cookiePolicy={"single_host_origin"}
               isSignedIn={true}
             />
-            {/* <Glog/> */}
-            {/* <button
-                type="button"
-                className="btn btn-light w-75 mx-auto d-block"
-                onClick={() => <Glog />}
-              >
-                Google
-              </button> */}
+            
           </div>
         </form>
       </div>
