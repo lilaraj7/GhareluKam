@@ -25,9 +25,7 @@ function Form(props) {
             </label>
             <input
               type="search"
-              className="form-control"
-            
-            />
+              className="form-control"/>
           </div>
         </div>
         <div className="row pe-0">
@@ -73,25 +71,25 @@ function Form(props) {
         <label>Purposes</label>
         <div>
           
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn me-4 btn-light">
             All
           </button>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn me-4 btn-light">
             House
           </button>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn me-4 btn-light">
             Land
           </button>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn me-4 btn-light">
             Flats
           </button>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn me-4 btn-light">
             Appartment
           </button>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn me-4 btn-light">
             Shops
           </button>
-          <button type="button" className="btn btn-light">
+          <button type="button" className="btn me-4 btn-light">
             Office
           </button>
         </div>
@@ -99,11 +97,11 @@ function Form(props) {
            <div className='arrowback' onClick={props.change}>
               <BiArrowBack/>
               Search home Service
-          </div>
+           </div>
               <div className="se-btn">
               <button type="button" className="btn btn-primary">Search</button>
               </div>
-              </div>
+          </div>
       </div>
     </form>
   );

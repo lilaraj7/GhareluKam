@@ -1,16 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./login.css";
-// import gharelulogo from "../../Assets/gharelulogo.png";
 import image3 from "../../Assets/image3.jpeg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/autoplay";
 import "swiper/css/bundle";
 import { Autoplay, Pagination } from "swiper";
-// import $ from "jquery";
+import $ from "jquery";
 import { useNavigate } from "react-router-dom";
 import Logincontext from "../Context/Logincontext";
-import Glog from "./Glog";
-// import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
 
@@ -32,23 +29,7 @@ function Login(props) {
     }
     gapi.load("client:auth2", start);
   });
-  // const handleapi =(e)=>{
-  //   e.preventDefault()
-  //   axios.post('https://testing.esnep.com/gharelukam/api/login',{
-  //     UserName:data.username,
-  //     Password:data.password,
-  //     NotificationToken: "string",
-  //     Source: "GOOGLE"
-  //   })
-  //   .then((result)=>{
-  //     console.log(result.data)
 
-  //   })
-  //   .catch((error)=>{
-  //     console.log(error)
-  //   })
-
-  // }
   const onSuccess = (res) => {
     console.log("login Success:", res.profileObj);
     setUserName(res.profileObj.email);
@@ -76,7 +57,7 @@ function Login(props) {
           if (res.Message === "Success.") {
             setIslogged(!islogged);
             setTimeout(() => {
-              history("/home");
+              history("/");
             }, 1000);
           } else if (res.Token == null) {
           }
@@ -112,12 +93,14 @@ function Login(props) {
           // console.log(res.LoginOutput[0],FullName);
 
           if (res.Message === "Success.") {
-            setIslogged(!islogged);
             setTimeout(() => {
-              history("/home");
+              history("/");
+
+              $(".login-container").fadeOut(100);
+              setIslogged(true);
             }, 1000);
           } else if (res.Token == null) {
-            afterEach("password dosent Matched ");
+            alert("password dosent Matched ");
           }
         });
     }
@@ -134,9 +117,13 @@ function Login(props) {
   //   });
   // },[])
 
-  // const cross=()=>{
-  //   $('.login-container').fadeOut(100)
-  // }
+  const cross = () => {
+    $(".login-container").fadeOut(100);
+  };
+
+  useEffect(() => {
+    $(".login-container").fadeOut(100);
+  }, []);
 
   // else {
   //   swal("Failed", response.message, "error");
@@ -161,9 +148,11 @@ function Login(props) {
         {/* <div className="top-row1">
           <img src={gharelulogo} alt="" height="80px" width="100px" />
         </div> */}
-        {/* <div className="top-row2">
-          <button className="cut" onClick={cross}>x</button>
-        </div> */}
+        <div className="top-row2">
+          <button className="cut" onClick={cross}>
+            x
+          </button>
+        </div>
       </div>
       <div className="main-login-container">
         <div className="login-image">

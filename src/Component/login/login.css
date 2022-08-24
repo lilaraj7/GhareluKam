@@ -1,15 +1,13 @@
 .login-container{
     display: flex;
     flex-direction: column;
-    
     background-color: rgb(245, 236, 236);
-    border-radius: 8px;
     height: 550px;
     width: 850px;
     position: absolute;
     left: 15%;
-    top: 10%;
-   
+    top: 80%;
+    transform: translate(15%);
     color: black;
     border-radius: 5px;
   

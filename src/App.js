@@ -8,7 +8,7 @@ import Services from "./Pages/Services";
 import Blogs from "./Pages/Blogs";
 import Contact from "./Pages/Contact";
 import Register from "./Pages/Register";
-import Login from "./Component/login/Login";
+// import Login from "./Component/login/Login";
 import { LoginProvider } from "./Component/Context/Logincontext";
 import Navbar from "./Component/Navbar";
 // import SharedLayout from "./Pages/SharedLayout";
@@ -21,19 +21,19 @@ function App() {
         </header>
         <div className="main-home">
           <Routes>
-            <Route path="/" element={<Login />} />
-
+            <Route path="/" element={<Home />} />
           </Routes>
-        
-        <Routes>
-          <Route path="home" element={<Home/>}/>
-          <Route path="Property" element={<Property/>}/>
-          <Route path="Services" element={<Services/>}/>
-          <Route path="Blogs" element={<Blogs/>}/>
-          <Route path="Contact" element={<Contact/>}/>
-          <Route path="Register" element={<Register/>}/>
-        </Routes>
-</div>
+
+          <Routes>
+            {/* <Route path="/" element={<Home/>}/> */}
+            <Route path="Property" element={<Property />} />
+            <Route path="Services" element={<Services />} />
+            <Route path="Blogs" element={<Blogs />} />
+            <Route path="Contact" element={<Contact />} />
+            <Route path="Register" element={<Register />} />
+            {/* <Route path="Login" element={<Login/>}/> */}
+          </Routes>
+        </div>
         {/* </Navbar> */}
         {/* </Route> */}
       </BrowserRouter>
