@@ -6,7 +6,7 @@
     width: 850px;
     position: absolute;
     left: 15%;
-    top: 80%;
+    top: 5rem;
     transform: translate(15%);
     color: black;
     border-radius: 5px;
@@ -15,7 +15,6 @@
 .top{
     display: flex;
     flex-direction: row;
-   
     height: 80px;
     padding-right: 1rem;
     padding-left: 1rem;

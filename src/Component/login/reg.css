@@ -1,0 +1,10 @@
+.reg-form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #DF7819;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 395px;
+    border-radius: 0.2rem;
+  }

@@ -70,7 +70,7 @@ const GoogleRegister = () => {
       cookiePolicy="single_host_origin"
       isSignedIn={false}
     >
-      Register with Google
+      Signup with Google
     </GoogleLogin>
   );
 };

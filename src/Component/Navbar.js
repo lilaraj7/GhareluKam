@@ -2,23 +2,25 @@ import React, { useState, useContext } from "react";
 import "./navbar.css";
 import gharelulogo from "../Assets/gharelulogo.png";
 import { NavLink } from "react-router-dom";
-import Login from "./login/Login";
 import Logincontext from "./Context/Logincontext";
 import $ from "jquery";
+import Register from "../Pages/Register";
 
 const Navbar = () => {
   const { islogged, setIslogged } = useContext(Logincontext);
-  const [btnshow, setBtnshow] = useState(true);
+  // const [btnshow, setBtnshow] = useState(true);
+  const [rgisterbtn,setRegisterbtn]=useState()
 
-
+  
   const handleOut=(e)=>{
     e.preventDefault();
     setIslogged(false);
   }
-  const handleShow = (e) => {
-    e.preventDefault();
-    $(".login-container").fadeIn(100);
-  };
+  // const handleShow = (e) => {
+  //   e.preventDefault();
+  //   $(".reg-container").fadeIn(100);
+    
+  // };
 return (
     
  <nav className="navbar navbar-expand-lg navbar-light bg-white">
@@ -70,18 +72,19 @@ return (
                 Contact
               </NavLink>
             </li>
-            <li className="nav-item ">
-              <NavLink to="Register" className="nav-link">
-                Register
-              </NavLink>
-            </li>
+            {/* <li className="nav-btn ps-4 ">
+              <button className="btn btn-primary" onClick={()=>{setRegisterbtn(!rgisterbtn)}}>
+                Signup
+              </button>
+            </li> */}
 
             <li className="nav-btn ps-4">
               
-        {!islogged ? (  <button className="btn  btn-primary" onClick={handleShow}>login</button>):
+        {!islogged ? (  <button className="btn  btn-primary" onClick={(e)=>{setRegisterbtn(!rgisterbtn)}}>Signup</button>):
         ( <button className="btn btn-primary" onClick={handleOut}>Logout</button>)}      
             </li>
-            {btnshow ? <Login /> : null}
+            {/* {btnshow ? <Login /> : null} */}
+            {rgisterbtn ? <Register/>:null}
           </ul>
         </div>
       </div>
