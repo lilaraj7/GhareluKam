@@ -8,11 +8,16 @@ import Blogs from "./Pages/Blogs";
 import Contact from "./Pages/Contact";
 // import Register from "./Pages/Register";
 import { LoginProvider } from "./Component/Context/Logincontext";
+import { ProfileProvider } from "./Component/Context/Profilecontext";
+
+
 import Navbar from "./Component/Navbar";
+import Userprofile from "./Component/Userprofile";
 function App() {
   return (
     <LoginProvider>
-      <BrowserRouter>
+            <ProfileProvider>
+            <BrowserRouter>
         <header className="App-header">
           <Navbar />
         </header>
@@ -28,12 +33,15 @@ function App() {
             <Route path="Blogs" element={<Blogs />} />
             <Route path="Contact" element={<Contact />} />
             {/* <Route path="Register" element={<Register />} /> */}
-            {/* <Route path="Login" element={<Login/>}/> */}
+            <Route path="Userprofile" element={<Userprofile/>}/>
           </Routes>
         </div>
         
         
       </BrowserRouter>
+            </ProfileProvider>
+
+      
     </LoginProvider>
   );
 }

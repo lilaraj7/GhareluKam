@@ -1,14 +1,13 @@
-.gharlogo{
- 
+.gharlogo {
   padding-left: 1rem;
 }
-.nav-item{
-    margin:  0 1.4rem;
+.nav-item {
+  margin: 0 1.4rem;
 }
-.btn{
+.btn {
   margin: 0.2rem;
 }
-.navbar{
+.navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,11 +26,9 @@
 .navbar .navbar-nav .nav-item {
   position: relative;
 }
-.nav-link{
+.nav-link {
   color: black;
-  
 }
-
 
 .active::after {
   position: absolute;
@@ -43,9 +40,35 @@
   /* width: 100%; */
   content: "";
   height: 4px;
- 
 }
-.active{
+.active {
   color: blue !important;
-  
+}
+.dropmenu {
+  position: absolute;
+  background-color: #fff;
+  top: 3.2rem;
+  right: 3%;
+  border: 1px solid #DF7819;
+  border-radius: 3px;
+  z-index: 100;
+  box-shadow: -5px 5px 8px -7px rgba(0,0,0,0.78);
+  -webkit-box-shadow: -5px 5px 8px -7px rgba(0,0,0,0.78);
+  -moz-box-shadow: -5px 5px 8px -7px rgba(0,0,0,0.78);  
+}
+.drop-menu{
+  list-style: none;
+  padding: 1rem;
+}
+.pro-user{
+  display: flex;
+  flex-direction: row;
+  padding-left: 1.5rem;
+  align-items: center;
+}
+.lobtn{
+  background-color: red;
+  border-radius: 4px;
+  color: white
+  ;
 }

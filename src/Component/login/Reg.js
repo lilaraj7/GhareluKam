@@ -72,6 +72,7 @@ const Reg=(props)=>{
    
     return(
         <div>
+          <h3>Signup</h3>
               <form>
         {/* <h3>Register to  <span className="c1">Gharelu</span> <span className="c2"> Kam</span></h3> */}
 

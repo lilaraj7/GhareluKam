@@ -1,24 +1,35 @@
 import React, { useState, useEffect ,useContext} from "react";
 import $ from "jquery";
 import { gapi } from "gapi-script";
-import Gregistration from "../../Pages/Gregistration";
 import { BiArrowBack } from "react-icons/bi";
 import Logincontext from "../Context/Logincontext";
+import ProfileContext from "../Context/Profilecontext";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
-
-
-
 
 
 const client_id =
   "422884838767-fro3igbie8ldmgp7itnfeok7q2bspa47.apps.googleusercontent.com";
 const Reg=(props)=>{
+  const history = useNavigate();
 
-    const { islogged, setIslogged } = useContext(Logincontext);
+    const { islogged, setIslogged,setProfileName } = useContext(Logincontext);
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
-   
+    const {
+      firstname,
+      setFirstname,
+      setLastname,
+      setContact,
+      setAddress,
+      setDistrict,
+      setLong,
+      setLat,
+      setUid,
+      setBio,
+      setImage,
+      setEmail,
+    } = useContext(ProfileContext);
     useEffect(() => {
         function start() {
           gapi.client.init({
@@ -29,7 +40,70 @@ const Reg=(props)=>{
         gapi.load("client:auth2", start);
       });
 
-
+      // const onSuccess = (res) => {
+      //   console.log(res.profileObj);
+      //   const username = res.profileObj.email;
+      //   // const firstname = res.profileObj.givenName;
+      //   // const lastname = res.profileObj.familyName;
+      //   // console.log("fullname" + firstname + lastname);
+      //   return fetch(`https://testing.esnep.com/gharelukam/api/login`, {
+      //     method: "POST",
+      //     headers: {
+      //       "Access-Control-Allow-Origin": "*",
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       UserName: username,
+      //       // FullName: firstname + " " + lastname,
+      //       Password: "",
+      //       NotificationToken: "string",
+      //       Source: "GOOGLE",
+      //     }),
+      //   })
+      //     .then((data) => data.json())
+      //     .then((res) => {
+      //       console.log(res);
+      //       // // alert(res.Message);
+      //       // const response = res.LoginOutputs;
+      //       // console.log(response);
+    
+      //       if (res.Message === "Success.") {
+      //         // console.log(res);
+      //         setTimeout(() => {
+      //           history("/");
+      //           res.LoginOutputs[0].FullName
+      //             ? setProfileName(res.LoginOutputs[0].FullName)
+      //             : setProfileName(res.LoginOutputs[0].UserName);
+               
+      //           let name = res.LoginOutputs[0].FullName;
+      //           const myArray = name.split(" ");
+      //           console.log(myArray[0]);
+      //           setFirstname(myArray[0]);
+      //           setLastname(myArray[1]);
+      //           console.log("firstname", firstname);
+    
+      //           let info = res.LoginOutputs[0];
+      //           //setting value to use in update user page
+      //           setContact(info.Contact);
+      //           setAddress(info.Address);
+      //           setDistrict(info.District);
+      //           setLong(info.Longitude);
+      //           setLat(info.Latitude);
+      //           setUid(info.UID);
+      //           setBio(info.Bio);
+      //           setImage(info.Image);
+      //           setEmail(info.Email);
+      //           document.querySelector("body").style.overflow = "scroll";
+      //         }, 1000);
+      //       } else if (username === undefined) {
+      //         alert("you should fill all the box");
+      //       }
+      //     })
+      //     .catch((err) => console.log("error" + err));
+      // };
+      const failureHandler = (res) => {
+        console.log("login failed", res);
+      };
       const onSuccess = (res) => {
         console.log("login Success:", res.profileObj);
         setUserName(res.profileObj.email);
@@ -51,14 +125,32 @@ const Reg=(props)=>{
             .then((data) => data.json())
             .then((res) => {
               console.log(res.Message);
-              // const respon = res.LoginOutput;
-              // console.log(res.LoginOutput[0],FullName);
               if (res.Message === "Success.") {
                 setTimeout(() => {
                   history("/");
     
                   $(".reg-container").fadeOut(1000);
                   setIslogged(true);
+                  let name = res.LoginOutputs[0].FullName;
+                  const myArray = name.split(" ");
+                  console.log(myArray[0]);
+                  setFirstname(myArray[0]);
+                  setLastname(myArray[1]);
+                  console.log("firstname", firstname);
+      
+                  let info = res.LoginOutputs[0];
+                  //setting value to use in update user page
+                  setContact(info.Contact);
+                  setAddress(info.Address);
+                  setDistrict(info.District);
+                  setLong(info.Longitude);
+                  setLat(info.Latitude);
+                  setUid(info.UID);
+                  setBio(info.Bio);
+                  setImage(info.Image);
+                  setEmail(info.Email);
+                 
+                  document.querySelector("body").style.overflow = "scroll";
                 }, 1000);
               } else if (res.Token == null) {
                 
@@ -76,7 +168,7 @@ const Reg=(props)=>{
       const onFailure = (res) => {
         console.log("Login Failed:", res);
       };
-      const history = useNavigate();
+     
       const handleSubmit = async (e) => {
         e.preventDefault();
         if (username === null && password === null) {
@@ -98,14 +190,52 @@ const Reg=(props)=>{
             .then((data) => data.json())
             .then((res) => {
               console.log(res.Message);
-              // const respon = res.LoginOutput;
-              // console.log(res.LoginOutput[0],FullName);
-    
+              
               if (res.Message === "Success.") {
                 setTimeout(() => {
+                  
+                 
+                let name = res.LoginOutputs[0].FullName;
+                const myArray = name.split(" ");
+                console.log(myArray[0]);
+                setFirstname(myArray[0]);
+                setLastname(myArray[1]);
+                console.log("firstname", firstname);
+    
+                let info = res.LoginOutputs[0];
+                //setting value to use in update user page
+                setContact(info.Contact);
+                setAddress(info.Address);
+                setDistrict(info.District);
+                setLong(info.Longitude);
+                setLat(info.Latitude);
+                setUid(info.UID);
+                setBio(info.Bio);
+                setImage(info.Image);
+                setEmail(info.Email);
+                document.querySelector("body").style.overflow = "scroll";
                   history("/");
                   $(".reg-container").fadeOut(1000);
                   setIslogged(true);
+                  // let name = res.LoginOutputs[0].FullName;
+                  // const myArray = name.split(" ");
+                  // console.log(myArray[0]);
+                  // setFirstname(myArray[0]);
+                  // setLastname(myArray[1]);
+                  // console.log("firstname", firstname);
+      
+                  // let info = res.LoginOutputs[0];
+                  // //setting value to use in update user page
+                  // setContact(info.Contact);
+                  // setAddress(info.Address);
+                  // setDistrict(info.District);
+                  // setLong(info.Longitude);
+                  // setLat(info.Latitude);
+                  // setUid(info.UID);
+                  // setBio(info.Bio);
+                  // setImage(info.Image);
+                  // setEmail(info.Email);
+                  // document.querySelector("body").style.overflow = "scroll";
                 }, 1000);
               } else if (res.Token == null) {
                 alert("password dosent Matched ");
@@ -118,8 +248,8 @@ const Reg=(props)=>{
       
     return(
         <div>
+          <h1>Login</h1>
         <form>
-        {/* <h3>Register to  <span className="c1">Gharelu</span> <span className="c2"> Kam</span></h3> */}
 
         <div className="my-3">
         <input

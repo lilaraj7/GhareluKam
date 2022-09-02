@@ -5,43 +5,48 @@ import { NavLink } from "react-router-dom";
 import Logincontext from "./Context/Logincontext";
 import $ from "jquery";
 import Register from "../Pages/Register";
+import { BiUser, BiChevronDown } from "react-icons/bi";
+import DropDown from "./Dropdown";
+// import DropDown from "./Dropdown";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const { islogged, setIslogged } = useContext(Logincontext);
-  // const [btnshow, setBtnshow] = useState(true);
-  const [rgisterbtn,setRegisterbtn]=useState()
+  const [btnshow, setBtnshow] = useState(true);
+  const [rgisterbtn, setRegisterbtn] = useState();
 
-  
-  const handleOut=(e)=>{
-    e.preventDefault();
-    setIslogged(false);
-  }
+  // const handleOut = (e) => {
+  //   e.preventDefault();
+  //   setIslogged(false);
+  // };
   // const handleShow = (e) => {
   //   e.preventDefault();
   //   $(".reg-container").fadeIn(100);
-    
+
   // };
-return (
-    
- <nav className="navbar navbar-expand-lg navbar-light bg-white">
+  // const showdrop=()={
+  //   <DropDown/>
+  // }
+  const handleEnter = () => {
+    $(".dropmenu").toggleClass("d-none");
+    $(".drop-menu").fadeIn();
+  };
   
-      <img src={gharelulogo} alt="logo" className="gharlogo"/>
-      <span className="navbar-brand">
-          </span> 
-         <button
-            className="navbar-toggler ps-2 bg-white"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-white">
+      <img src={gharelulogo} alt="logo" className="gharlogo" />
+      <span className="navbar-brand"></span>
+      <button
+        className="navbar-toggler ps-2 bg-white"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
       <div className="container-fluid">
-      
         <div
           className="collapse navbar-collapse justify-content-end"
           id="navbarSupportedContent"
@@ -79,18 +84,36 @@ return (
             </li> */}
 
             <li className="nav-btn ps-4">
-              
-        {!islogged ? (  <button className="btn  btn-primary" onClick={(e)=>{setRegisterbtn(!rgisterbtn)}}>Signup</button>):
-        ( <button className="btn btn-primary" onClick={handleOut}>Logout</button>)}      
+              {!islogged ? (
+                <button
+                  className="btn  btn-primary"
+                  onClick={(e) => {
+                    setRegisterbtn(!rgisterbtn);
+                  }}
+                >
+                  Signup
+                </button>
+              ) : (
+                // <button className="btn btn-primary" onClick={handleOut}>
+                //   Logout
+                // </button>
+                <li className="nav-btn ps-4" onClick={handleEnter}>
+                <BiUser />
+                <BiChevronDown />
+              </li>
+              )}
             </li>
-            {/* {btnshow ? <Login /> : null} */}
-            {rgisterbtn ? <Register/>:null}
+            {/* <li className="nav-btn ps-4" onClick={handleEnter}>
+              <BiUser />
+              <BiChevronDown />
+            </li> */}
+            
+            {btnshow ?  <DropDown />: null}
+            {rgisterbtn ? <Register /> : null}
           </ul>
         </div>
       </div>
     </nav>
-
-   
   );
 };
 
