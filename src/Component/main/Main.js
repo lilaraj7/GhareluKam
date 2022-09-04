@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./main.css";
-// import office from "../../Assets/office.png";
-// import image2 from "../../Assets/image2.jpeg";
 import house from "../../Assets/house.png";
 import Slider from "../Slider";
 import { FaUserTie } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
 import { BsFillHouseDoorFill } from "react-icons/bs";
-// import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/autoplay";
 import "swiper/css/bundle";
-// import { Autoplay, Pagination } from "swiper";
 import Topslider from "./Topslider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaPaintBrush, FaChair } from "react-icons/fa";

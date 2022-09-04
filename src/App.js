@@ -9,14 +9,17 @@ import Contact from "./Pages/Contact";
 // import Register from "./Pages/Register";
 import { LoginProvider } from "./Component/Context/Logincontext";
 import { ProfileProvider } from "./Component/Context/Profilecontext";
+import { Addpropertyprovider } from "./Component/Context/Addpropertycntext";
 
 
 import Navbar from "./Component/Navbar";
 import Userprofile from "./Component/Userprofile";
+import Addproperty from "./Component/Addproperty";
 function App() {
   return (
     <LoginProvider>
             <ProfileProvider>
+              <Addpropertyprovider>
             <BrowserRouter>
         <header className="App-header">
           <Navbar />
@@ -34,11 +37,14 @@ function App() {
             <Route path="Contact" element={<Contact />} />
             {/* <Route path="Register" element={<Register />} /> */}
             <Route path="Userprofile" element={<Userprofile/>}/>
+            <Route path="Addproperty" element={<Addproperty/>}/>
+
           </Routes>
         </div>
         
         
       </BrowserRouter>
+      </Addpropertyprovider>
             </ProfileProvider>
 
       

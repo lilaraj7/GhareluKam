@@ -244,10 +244,10 @@ import ProfileContext from "./Context/Profilecontext";
 
 import { BiUserCircle } from "react-icons/bi";
 import "./userprofile.css";
+import $ from "jquery";
 
-// import "./userupdate.css";
 
-const  Userprofile = () => {
+const  Userprofile = (props) => {
   // const { baseUrl } = useContext(BaseUrlContext);
   const {
     firstname,
@@ -332,10 +332,17 @@ const  Userprofile = () => {
       })
       .catch((err) => console.log("error" + err));
   };
+
+  const cut = () => {
+    $(".mainuserprofile").fadeOut(1000);
+  };
+
   return (
     <>
-      <div className="container justify-content-center mainuserprofile">
-        <h2 className="text-align-center">Edit Profile</h2>
+    {props.updateprofile ?(
+        <div className="containers justify-content-center  mainuserprofile">
+       <span className="p-h1-t"><h2 className="text-align-center">Edit Profile</h2>
+       <button className='btn newbtn' onClick={cut}>X</button></span> 
         <div className="row justify-content-center userprofile">
           <BiUserCircle
             style={{
@@ -469,8 +476,11 @@ const  Userprofile = () => {
           </button>
         </div>
       </div>
+    ):(<></>)}
+    
     </>
   );
 };
 
 export default  Userprofile;
+ 

@@ -1,10 +1,18 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid gray;
-    height: 660px;
-    width: 500px;
-    border-radius: 2px;
+.containers{
+    position: absolute;
+    top: 700%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background: #fff;
 }
 
+.mainuserprofile{
+    width: 50%;
+}
+     
+.p-h1-t{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

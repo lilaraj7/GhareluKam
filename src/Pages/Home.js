@@ -21,9 +21,7 @@ function Home() {
             <Form2 change={handleChange} />
           )}
         </aside>
-        {/* <div className="main-home-slider">
-          <Topslider/>
-        </div> */}
+      
         <div className="main-home-cards col-xl-8">
           <Main />
         </div>

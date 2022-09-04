@@ -3,10 +3,14 @@ import Logincontext from "./Context/Logincontext";
 import ProfileContext from "./Context/Profilecontext";
 import $ from "jquery";
 import { NavLink, useNavigate } from "react-router-dom";
-import { BiUser } from 'react-icons/bi';
-
+import { BiUser } from "react-icons/bi";
+import Addproperty from "./Addproperty";
+import Addpropertycontext from "./Context/Addpropertycntext";
+import Userprofile from "./Userprofile";
+import Changepassword from "./main/Changepassword";
 
 function DropDown() {
+  const { addproperty, setAddproperty,updateprofile,setUpdateprofile,changepass,setChangepass } = useContext(Addpropertycontext);
   const { islogged, setIslogged } = useContext(Logincontext);
   const { firstname, lastname } = useContext(ProfileContext);
   const [profile, setProfile] = useState();
@@ -33,39 +37,37 @@ function DropDown() {
   //     setDrop(false)
   // }
   return (
+    <>
     <div className="dropmenu d-none">
-     
       <ul className="drop-menu">
-      <div className="pro-user">
-      <BiUser/>
-      <h1>{`${firstname} ${lastname}`}</h1>
-      {console.log(firstname)}
-      </div>
-        <li className="nav-item ">
-          <NavLink to="Userprofile" className="nav-link ">
-            Update-profile
-          </NavLink>
+        <div className="pro-user">
+          <BiUser />
+          <h1>{`${firstname} ${lastname}`}</h1>
+          {console.log(firstname)}
+        </div>
+        <li className="nav-item "
+        onClick={(e) => {
+          setUpdateprofile(!updateprofile);
+        }}>Update-profile</li>
+        <li
+          className="nav-item "
+          onClick={(e) => {
+            setAddproperty(!addproperty);
+          }}
+        >
+          Property
         </li>
-        <li className="nav-item ">
-          <NavLink to="Property" className="nav-link ">
-            Property
-          </NavLink>
-        </li>
-        <li className="nav-item ">
-          <NavLink to="Changepassword" className="nav-link ">
-            Change Password
-          </NavLink>
-        </li>
+        <li className="nav-item "  onClick={(e) => {
+          setChangepass(!changepass);}}>Change Password</li>
         <li className="nav-item " onClick={handleOut}>
-        <button className="lobtn">LogOut</button>  
+          <button className="lobtn">LogOut</button>
         </li>
-        {/* <li onClick={handleprofile}>Profile</li>
-        <li>Property</li>
-        <li>Change Password</li> */}
-        {/* <li onClick={handleOut}>LogOut</li> */}
       </ul>
-      {/* {profile ? <Userprofile /> : null} */}
     </div>
+    <Changepassword changepass={changepass}/>
+    <Userprofile updateprofile={updateprofile}/>
+    <Addproperty addproperty={addproperty}/>
+    </>
   );
 }
 export default DropDown;
